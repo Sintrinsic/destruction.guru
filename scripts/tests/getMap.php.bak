@@ -1,0 +1,64 @@
+<?
+$height = 600;
+if(filter_var($_GET['height'], FILTER_VALIDATE_INT)){
+$height = $_GET['height'];
+}
+$mag=$height/100;
+$queryString = 'select systemID as id, systemName as name, security, round(((x-mm.minX)/(mm.maxX-mm.minX)*100)*'.$mag.')+10 x, round(((z-mm.minZ)/(mm.maxX-mm.minX)*100)*'.$mag.')+10 z from me_mapByHyk m inner join (select min(x) minX, max(x) maxX, min(z) minZ, max(z) maxz from me_mapByHyk) mm on 1=1 order by z';
+$querySum = md5($queryString);
+if(file_exists("../cache/".$querySum)){
+	echo file_get_contents("../cache/".$querySum);
+	exit;
+}
+
+$host = '127.0.0.1';
+$db   = 'dest_eve';
+$user = 'dest_eve';
+$pass = 'SuperStrong!';
+$charset = 'utf8';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$opt = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+$db = new PDO($dsn, $user, $pass, $opt);
+
+$systemQuery = $db->query($queryString);
+
+
+$doneConns = array();
+$cons = array();
+$systems = array();
+$ids=array();
+$size = array("x"=>0,"y"=>0);
+while ($system = $systemQuery->fetch()) {
+        $systems[$system['id']]=$system;
+        $ids[]=$system['id'];
+		if($system['x']>$size['x']){
+		   $size['x']=$system['x'];	
+		}
+		if($system['z']>$size['z']){
+			$size['z']=$system['z'];	
+		}
+        $systemConnQuery=$db->query('select toSolarSystemID toSys from mapSolarSystemJumps where fromSolarSystemID = '.$system['id'].';');
+        while($conn = $systemConnQuery->fetch()){
+                $fromStr=$system['id'].":".$conn['toSys'];
+                $toStr=$conn['toSys'].":".$system['id'];
+                if(in_array($fromStr,$doneConns) || in_array($toStr,$doneConns)){
+                        continue;
+                }
+                $doneConns[]=$fromStr;
+                $cons[$system['id']][]=$conn['toSys'];
+        }
+}
+
+$out = array("systems"=>$systems,"connections"=>$cons,"size"=>$size);
+$outData = json_encode($out,1);
+$cacheFile = fopen("../cache/".$querySum,"w");
+fwrite($cacheFile,$outData);
+fclose($cacheFile);
+echo $outData;
+
+?>

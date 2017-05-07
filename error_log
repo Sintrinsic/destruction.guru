@@ -1,0 +1,5 @@
+[23-Oct-2016 19:39:41 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/vaultofmadness/public_html/blapmap2/index.php on line 44
+[24-Oct-2016 22:52:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/vaultofmadness/public_html/blapmap2/index.php on line 2
+[24-Oct-2016 22:52:21 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/vaultofmadness/public_html/blapmap2/index.php:2) in /home/vaultofmadness/public_html/blapmap2/index.php on line 3
+[24-Oct-2016 22:52:48 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/vaultofmadness/public_html/blapmap2/index.php on line 2
+[24-Oct-2016 22:52:48 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/vaultofmadness/public_html/blapmap2/index.php:2) in /home/vaultofmadness/public_html/blapmap2/index.php on line 3

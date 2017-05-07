@@ -1,0 +1,241 @@
+html, body, div {
+	border:0px;
+	margin:0px;
+	padding:0px;
+}
+
+
+
+#mapContainer {
+	width:calc( 100% - 250px);
+	height:100%;
+	overflow:hidden;	
+	display: inline-block;
+	float:left;
+	text-align:center;
+	position: relative;
+}
+
+#map {
+	width:100%;
+	height:100%;
+	overflow:auto;
+	padding:10px;
+	margin: 0px auto 0px auto; 
+	align-items:center;
+}
+
+#header {
+	height:100px;
+	width:100%;
+	min-width:800px;
+	position:fixed;
+	top:0px;
+	left:0px;
+	font-family: 'Orbitron', sans-serif;
+	letter-spacing:10px;
+	pointer-events: none;
+
+}
+
+#navBar {
+	height:30px;
+	width:100%;
+	background-color:black;	
+	color:white;	
+	vertical-align:center;
+	line-height:30px;
+}
+
+#logo {
+	margin-left:20px;
+	line-height:30px;
+	vertical-align:center;
+}
+
+#content {
+	width:100%;
+	padding-top:30px;
+	height:100vh;
+	min-width:800px;
+	vertical-align:top;
+	box-sizing:border-box;
+	background-color:#272727;
+}
+
+#properties {
+	display:inline-block;
+	float:right;
+	width:248px; 
+	height:100%;
+	background-color:#4a4a4a;
+	border-left:2px solid black;
+	font-family: 'Oswald', sans-serif;
+	font-variant:small-caps;
+	text-align:center;
+	color:#ccc;
+}
+
+.propHeader {
+	font-weight:bolder;
+	font-size:16px;
+	letter-spacing:3px;
+	height:35px;
+	line-height:35px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color:#3f3f3f;
+	color:white;
+}
+
+#killsContent {
+	font-family: 'Oswald', sans-serif;
+	font-variant:small-caps;
+	font-size:inherit;
+	text-align:left;
+	color: #b4b4b4;
+	letter-spacing: 1px;
+}
+
+.bottom {
+	bottom:0px;	
+}
+
+#feedContainer {
+	bottom:0px;
+	width:100%;
+	height:30px;	
+}
+
+circle {
+	cursor:pointer;	
+}
+
+#sysInfo {
+	height:70px;
+	padding-bottom:4px;
+}
+
+#toolInfo {
+	height:40px;
+	padding-bottom:4px;
+}
+
+#sysKills {
+	max-height:70%;	
+	overflow:auto;
+}
+
+#help {
+	border:1px solid white;
+	text-align:center;	
+    letter-spacing: 0px;
+    padding: 0px 6px 0px 5px;
+	pointer-events: all;
+	cursor:pointer;	
+
+}
+
+#mapSelection {
+	float:right;
+	letter-spacing:normal;
+	pointer-events: all;
+}
+
+#loading {
+	width:100%;
+	height:100%;
+	overflow:auto;
+	padding:10px;
+	margin: 0px auto 0px auto; 
+	position: absolute;
+	transform: translate(-50%, -50%);		
+	bottom: 50%;
+	top: 50%;
+}
+
+.high {
+	stroke:#64CF00;	
+}
+
+.low {
+	stroke:#FFF736;	
+}
+
+.null {
+	stroke:#AD2500;
+}
+
+.line {
+	stroke:#4D4D4D;
+	stroke-width:1;
+}
+
+th {
+    font-weight:normal;	
+}
+
+a, a:visited {
+	color:white;	
+}
+
+a:hover { 
+	color:#D9D9D9;
+}
+
+
+#mapSelection {
+	width:750px;
+}
+
+.toolButton {
+	margin-top:8px;
+	height:30px;
+	padding-top:0px;
+	font-family: 'Orbitron', sans-serif;
+	vertical-align: middle;
+}
+
+.toolText {
+	height:30px;
+	text-align:center;
+}
+
+#jumpRange {
+	width:30px;
+}
+
+#mapgenAlgoContainer { 
+	width:160px;
+	display:inline-block;
+	float:left;
+	width:160px;
+}
+
+.mapgenTool {
+	display:inline-block;
+	float:right;
+	width:570px;
+	border-left:3px solid #4D4D4D;
+	padding: 0px 0px 0px 5px;
+	text-align:right;
+}
+
+.smallInput {
+	width:43px;
+	margin-right:20px;
+}
+
+#getMap {
+	font-family: 'Orbitron', sans-serif;
+	height:22px;
+}
+
+#mapSystem {
+	width:120px;
+}
+
+.toolElement {
+	margin:8px 0px 0px 0px;
+	vertical-align:middle;
+}
